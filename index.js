@@ -6,33 +6,11 @@ client.on("ready", () => {
   console.log(`✅ | Logged as ${client.user.tag}`);
 })
 //////////////////////////////////////
-const DIG = require("discord-image-generation");
-client.on("messageCreate", async message => {
-  if (message.content.startsWith("circle")) {
-      let user = message.mentions.users.first() || client.users.cache.get(message.content.split(" ")[2]) || client.users.cache.get(message.content.split(" ")[1]);
-      if(!user) return message.channel.send("user ?!?!")
-      const avatar2 = user.displayAvatarURL({ dynamic: true , format: 'gif'});
-      let ef = await new DIG.Circle().getImage(avatar2)
-      let attach = new Discord.MessageAttachment(ef , "Circle.png");
-     await message.channel.send(attach)
-  
-//كود بنق البوت | ping bot code
-  if(message.content.startsWith("ping")) {
-    
-      
-    let embed = new Discord.MessageEmbed()
-    .setColor("RED")
-    .setTitle(`البنج حقي هو : 👇`)
-   .setDescription(`${client.ws.ping}`)
-   
-    .setThumbnail(message.guild.iconURL({dynamic : true}))
-    .setFooter(`الي طلب بنجي :  ${message.author.tag}` , message.author.avatarURL({dynamic:true}))
-    
-   message.channel.send({embeds:[embed]})
-    message.react('📈')
-    
-  } 
-})
+client.on('messageCreate', message => {
+  if(message.content === 'r') {
+    message.channel.send({ content: 'rrrr' })
+  }
+});
 
 ///
 client.login(process.env.token)
