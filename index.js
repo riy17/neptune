@@ -7,7 +7,7 @@ client.on("ready", () => {
 })
 //////////////////////////////////////
 const DIG = require("discord-image-generation");
-client.on("message", async message => {
+client.on("messageCreate", async message => {
   if (message.content.startsWith("circle")) {
       let user = message.mentions.users.first() || client.users.cache.get(message.content.split(" ")[2]) || client.users.cache.get(message.content.split(" ")[1]);
       if(!user) return message.channel.send("user ?!?!")
