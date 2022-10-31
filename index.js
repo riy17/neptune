@@ -6,14 +6,8 @@ client.on("ready", () => {
   console.log(`✅ | Logged as ${client.user.tag}`);
 })
 //////////////////////////////////////
-client.on('messageCreate', message => {
-  if(message.content === 'r') {
-    message.channel.send({ content: 'rrrr' })
-  }
-  if(message.content === 'cc') {
-    message.channel.send({ content: 'bb' })
-  }
-  if(message.channel.id != "1012444973448319077") return //ايدي روم
+client.on("message", async (message) => {
+if(message.channel.id != "1012444973448319077") return //ايدي روم
 if(message.author.send) {
 if (isNaN(message.content)) return message.delete()
 if(message.author.bot) return 
@@ -21,7 +15,7 @@ message.react("✅")
 let tax = Math.ceil(message.content * 20 / 19)
 message.channel.send(tax)
 }
-});
+}) 
 
 ///
 client.login(process.env.token)
