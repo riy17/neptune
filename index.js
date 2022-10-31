@@ -9,6 +9,7 @@ client.on("ready", () => {
 client.on('messageCreate', message => {
   if(message.content === 'r') {
     message.channel.send({ content: 'rrrr' })
+  }
   if(message.content === 'cc') {
     message.channel.send({ content: 'bb' })
   }
