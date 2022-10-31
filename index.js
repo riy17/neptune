@@ -14,7 +14,7 @@ client.on("message", async bader => {
     if (bader.author.bot) return;
     if (!bader.guild) return;
     if (!bader.content.startsWith(prefix)) return;
-    if (bader.content.toLowerCase().startsWith(prefix + "tax".toLowerCase())) {
+    if (bader.content.toLowerCase().startsWith("tax".toLowerCase())) {
         let args2 = parseInt(args)
         let tax = Math.floor(args2 * (20) / (19) + (1))
         let tax2 = Math.floor(args2 * (20) / (19) + (1) - (args2))
