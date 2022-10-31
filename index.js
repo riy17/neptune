@@ -7,38 +7,25 @@ client.on("ready", () => {
 })
 //////////////////////////////////////
 
-client.on("message",message=>{
-    const request = require("request");
-    const cheerio = require('cheerio');
-
-    if(message.content.startsWith ("banner")){
-        var sp = message.content.split(" ")
-      request(`http://f15.xp3.biz/banner.php?id=${sp[1]}`, function (error, response, html) {
-          if (!error && response.statusCode == 200) {
-            var $ = cheerio.load(html);
-            if($.text() == "Not found"){
-              message.channel.send("لايمكنك سحب بنر هاذا الشخص") // هنا اذا كان الي يبي يجيب من البنر ماعنده بنر
-            }
-            if($.text() == "Enter id"){
-              message.channel.send("فارغ") // هنا اذا مادخل اليوزر الي يبي جيب البنر حقه
-            }
-
-            if($.text() !== "Not found"){
-
-              if($.text() !== "Enter id"){
-
-                message.channel.send(" البنر : "+$.text()) // هنا لما يرسل البنر 
-                return;
-              }
-
-            }
-
-          }
-
-      });
-      }
+//كود بنق البوت | ping bot code
+client.on('messageCreate', message => {
+  if(message.content.startsWith("ping")) {
+    
       
-});
+    let embed = new Discord.MessageEmbed()
+    .setColor("RED")
+    .setTitle(`البنج حقي هو : 👇`)
+   .setDescription(`${client.ws.ping}`)
+   
+    .setThumbnail(message.guild.iconURL({dynamic : true}))
+    .setFooter(`الي طلب بنجي :  ${message.author.tag}` , message.author.avatarURL({dynamic:true}))
+    
+   message.channel.send({embeds:[embed]})
+    message.react('📈')
+    
+  } 
+})
+
 
 ///
 client.login(process.env.token)
