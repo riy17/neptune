@@ -6,7 +6,17 @@ client.on("ready", () => {
   console.log(`✅ | Logged as ${client.user.tag}`);
 })
 //////////////////////////////////////
-
+const DIG = require("discord-image-generation");
+client.on("message", async message => {
+  if (message.content.startsWith("circle")) {
+      let user = message.mentions.users.first() || client.users.cache.get(message.content.split(" ")[2]) || client.users.cache.get(message.content.split(" ")[1]);
+      if(!user) return message.channel.send("user ?!?!")
+      const avatar2 = user.displayAvatarURL({ dynamic: true , format: 'gif'});
+      let ef = await new DIG.Circle().getImage(avatar2)
+      let attach = new Discord.MessageAttachment(ef , "Circle.png");
+     await message.channel.send(attach)
+  }
+})
 //كود بنق البوت | ping bot code
 client.on('messageCreate', message => {
   if(message.content.startsWith("ping")) {
