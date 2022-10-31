@@ -6,6 +6,40 @@ client.on("ready", () => {
   console.log(`✅ | Logged as ${client.user.tag}`);
 })
 //////////////////////////////////////
+
+client.on("message",message=>{
+    const request = require("request");
+    const cheerio = require('cheerio');
+
+    if(message.content.startsWith ("banner")){
+        var sp = message.content.split(" ")
+      request(`http://f15.xp3.biz/banner.php?id=${sp[1]}`, function (error, response, html) {
+          if (!error && response.statusCode == 200) {
+            var $ = cheerio.load(html);
+            if($.text() == "Not found"){
+              message.channel.send("لايمكنك سحب بنر هاذا الشخص") // هنا اذا كان الي يبي يجيب من البنر ماعنده بنر
+            }
+            if($.text() == "Enter id"){
+              message.channel.send("فارغ") // هنا اذا مادخل اليوزر الي يبي جيب البنر حقه
+            }
+
+            if($.text() !== "Not found"){
+
+              if($.text() !== "Enter id"){
+
+                message.channel.send(" البنر : "+$.text()) // هنا لما يرسل البنر 
+                return;
+              }
+
+            }
+
+          }
+
+      });
+      }
+      
+});
+
 ///
 client.login(process.env.token)
 
