@@ -1,28 +1,13 @@
-const express = require('express');
+//السورس الاساسي لـ دسكورد نسخة 12 | the main source of discord.js 12v
+const Discord = require('discord.js');
+const { Client, Intents,MessageEmbed } = require('discord.js');
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_BANS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS, Intents.FLAGS.GUILD_INTEGRATIONS, Intents.FLAGS.GUILD_WEBHOOKS, Intents.FLAGS.GUILD_INVITES, Intents.FLAGS.GUILD_VOICE_STATES, Intents.FLAGS.GUILD_PRESENCES, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS, Intents.FLAGS.GUILD_MESSAGE_TYPING, Intents.FLAGS.DIRECT_MESSAGES, Intents.FLAGS.DIRECT_MESSAGE_REACTIONS, Intents.FLAGS.DIRECT_MESSAGE_TYPING] });
 
-const app = express();
-
-app.get('/', (req, res) => {
-    res.send('Hello Express app!')
-});
-
-app.listen(3000, () => {
-    console.log('server started');
-});
-const Discord = require("discord.js");
-const client = new Discord.Client({
-    intents: [
-        Discord.Intents.FLAGS.GUILDS,
-        Discord.Intents.FLAGS.GUILD_MESSAGES
-    ]
-});
-
-
-const prefix = "+"// bot prefix
+client.on("ready", () => {
+  console.log(`✅ | Logged as ${client.user.tag}`);
+})
+//////////////////////////////////////
+///
 client.login(process.env.token)
 
-
-client.on("ready", async () => {
-    console.log(`"${client.user.username}" is ready`)//runing bot username
-
-})
+//https://ra3dstudio.com CopyRight Codes
