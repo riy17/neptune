@@ -24,18 +24,11 @@ client.on('messageCreate', message => {
     message.react('📈')
     
   } 
-})
+}
 
    
-const prefix = "!";//برفكس حقك
-const devs = "525715719124680725";//اي دي حقك
-  let args = message.content
-    .split(" ")
-    .slice(1)
-    .join(" "); if (message.author.bot) return;
-  if (!message.guild) return;
-  if (!message.content.startsWith(prefix)) return;
- if (message.content.toLowerCase().startsWith(prefix + "tax".toLowerCase())) { 
+
+ if (message.content.toLowerCase().startsWith("tax".toLowerCase())) { 
     let args2 = parseInt(args)
     let tax = Math.floor(args2 * (20) / (19) + (1))
     let errorembed3 = new Discord.MessageEmbed()
