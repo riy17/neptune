@@ -11,7 +11,7 @@ client.on("ready", () => {
 client.on("messageCreate", async message => {
     if (message.author.bot) return;
   if (!message.guild) return;
-  if (message.content.toLowerCase().startsWith("tax".toLowerCase())) { 
+  if (message.content.toLowerCase().startsWith(prefix + "tax".toLowerCase())) { 
   let args = message.content
     .split(" ")
     .slice(1)
@@ -23,23 +23,37 @@ client.on("messageCreate", async message => {
 if (args.endsWith("m")) args = args.replace(/m/gi, "") * 1000000;
 else if (args.endsWith("k")) args = args.replace(/k/gi, "") * 1000;
     let args2 = parseInt(args)
-    let tax = Math.floor(args2 * (20) / (19) + (1))
-    let tax2 = Math.floor(args2 * (20) / (19) + (1)-(args2))
-    
+    let tax1 = Math.floor(args2 * (20) / (19) + (1))
+    let tax2 = Math.floor(args2 * (20) / (19) * (20) / (19) + (2))
+    let taxr = Math.floor(args2 / (40))
+    let tax1r = Math.floor(tax1 + taxr)
+    let tax2r = Math.floor(tax2 + taxr)
     let embed = new MessageEmbed()
       
-.setAuthor(`TAX CALCULATOR`, client.user.avatarURL({ dynamic: true }))
+.setAuthor(`الضرائب`, client.user.avatarURL({ dynamic: true }))
 
    .setThumbnail(client.user.avatarURL({ dynamic: true }))   
       
 .addFields([
     {
-    name: `Amount: `,
-    value: `${tax}`
+    name: `price(1 tax): `,
+    value: `${tax1}`
 },
   {
-    name: `Tax: `, 
+    name: `price(2 taxes): `, 
     value: `${tax2}`
+  },
+  {
+    name: `2.5% Tax: `, 
+    value: `${taxr}`
+  },
+  {
+    name: `price(1 tax) + 2.5%: `, 
+    value: `${tax1r}`
+  },
+  {
+    name: `price(2 taxes) + 2.5%: `, 
+    value: `${tax2r}`
   }
 ])
         .setColor(message.guild.me.displayColor)
@@ -50,7 +64,6 @@ else if (args.endsWith("k")) args = args.replace(/k/gi, "") * 1000;
    });    
   }
 }); 
-
 ///
 client.login(process.env.token)
 
