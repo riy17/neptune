@@ -11,7 +11,7 @@ client.on("ready", () => {
 client.on("messageCreate", async message => {
     if (message.author.bot) return;
   if (!message.guild) return;
-  if (message.content.toLowerCase().startsWith(prefix + "tax".toLowerCase())) { 
+  if (message.content.toLowerCase().startsWith("tax".toLowerCase())) { 
   let args = message.content
     .split(" ")
     .slice(1)
