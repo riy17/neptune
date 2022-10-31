@@ -26,9 +26,6 @@ client.on('messageCreate', message => {
   } 
 })
 
-client.on("message", async message => {
-///coded by : 
-
    
 const prefix = "!";//برفكس حقك
 const devs = "525715719124680725";//اي دي حقك
