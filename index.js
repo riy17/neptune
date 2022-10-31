@@ -24,44 +24,6 @@ client.on('messageCreate', message => {
     message.react('📈')
     
   } 
-
-
-   
-
- if (message.content.startsWith("tax")) { 
-    let args2 = parseInt(args)
-    let tax = Math.floor(args2 * (20) / (19) + (1))
-    let errorembed3 = new Discord.MessageEmbed()
-    .setTitle(`**:information_source: Error**`)
-    .setColor("#f04747")
-    .setDescription(`**It Must be a number**`)
-    .setFooter(`${client.user.username}`);
-    if (!args2) return message.channel.send(errorembed3);
-    let errorembed2 = new Discord.MessageEmbed()
-    .setTitle(`**:information_source: Error**`)
-    .setColor("#f04747")
-    .setDescription(`**Must Be A Number**`)
-    .setFooter(`${client.user.username}`);
-    if (isNaN(args2)) return message.channel.send(errorembed2);
-    let errorembed = new Discord.MessageEmbed()
-    .setTitle(`**:information_source: Error**`)
-    .setColor("#f04747")
-    .setDescription(`**Must The Number Larger 1**`)
-    .setFooter(`${client.user.username}`);
-    if (args2 < 1) return message.channel.send(errorembed);
-    let embed3 = new Discord.MessageEmbed()
-    .setTitle(`**:notes: The Final Cost Is :**`)
-    .setColor("#43b581")
-    .setDescription(`1`)
-    .setFooter(`${client.user.username}`);
-    if (args2 == 1) return message.channel.send(embed3);
-    let embed = new Discord.MessageEmbed()
-    .setTitle(`**:notes: The Final Cost Is :**`)
-    .setColor("#43b581")
-    .setDescription(`${tax}`)
-    .setFooter(`${client.user.username}`);
-    message.channel.send(embed);
-  }
 })
 
 ///
