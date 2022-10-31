@@ -25,18 +25,7 @@ client.on('messageCreate', message => {
     
   } 
 })
-client.on("message", async (message) => {
-if(message.channel.id != "1012444973448319077") return //ايدي روم
-if(message.author.send) {
-if (isNaN(message.content)) return message.delete()
-if(message.author.bot) return 
-message.react("✅") 
-let tax = Math.ceil(message.content * 20 / 19)
-message.channel.send(tax)
-let tax2 = Math.ceil(message.content * 20 / 19 * 20 / 19)
-message.channel.send(tax2)
-}
-})  
+
 
 ///
 client.login(process.env.token)
