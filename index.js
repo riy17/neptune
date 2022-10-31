@@ -61,7 +61,8 @@ client.on('messageCreate', message => {
     .setDescription(`${tax}`)
     .setFooter(`${client.user.username}`);
     message.channel.send(embed);
-  })
+  }
+})
 
 ///
 client.login(process.env.token)
