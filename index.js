@@ -13,6 +13,14 @@ client.on('messageCreate', message => {
   if(message.content === 'cc') {
     message.channel.send({ content: 'bb' })
   }
+  if(message.channel.id != "963831041104162907") return //ايدي روم
+if(message.author.send) {
+if (isNaN(message.content)) return message.delete()
+if(message.author.bot) return 
+message.react("✅") 
+let tax = Math.ceil(message.content * 20 / 19)
+message.channel.send(tax)
+}
 });
 
 ///
