@@ -13,7 +13,7 @@ client.on('messageCreate', message => {
   if(message.content === 'cc') {
     message.channel.send({ content: 'bb' })
   }
-  if(message.channel.id != "963831041104162907") return //ايدي روم
+  if(message.channel.id != "1012444973448319077") return //ايدي روم
 if(message.author.send) {
 if (isNaN(message.content)) return message.delete()
 if(message.author.bot) return 
