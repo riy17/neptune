@@ -24,11 +24,11 @@ client.on('messageCreate', message => {
     message.react('📈')
     
   } 
-}
+
 
    
 
- if (message.content.toLowerCase().startsWith("tax".toLowerCase())) { 
+ if (message.content.startsWith("tax")) { 
     let args2 = parseInt(args)
     let tax = Math.floor(args2 * (20) / (19) + (1))
     let errorembed3 = new Discord.MessageEmbed()
