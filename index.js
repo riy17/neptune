@@ -7,6 +7,50 @@ client.on("ready", () => {
   console.log(`✅ | Logged as ${client.user.tag}`);
 })
 //////////////////////////////////////
+
+client.on("messageCreate", async message => {
+    if (message.author.bot) return;
+  if (!message.guild) return;
+  if (message.content.toLowerCase().startsWith("tax".toLowerCase())) { 
+  let args = message.content
+    .split(" ")
+    .slice(1)
+    .join(" "); 
+    if(!args) return message.reply("**:rolling_eyes: Please enter a number**").catch((err) => {
+   console.log(err.message)
+   });
+    
+if (args.endsWith("m")) args = args.replace(/m/gi, "") * 1000000;
+else if (args.endsWith("k")) args = args.replace(/k/gi, "") * 1000;
+    let args2 = parseInt(args)
+    let tax = Math.floor(args2 * (20) / (19) + (1))
+    let tax2 = Math.floor(args2 * (20) / (19) + (1)-(args2))
+    
+    let embed = new MessageEmbed()
+      
+.setAuthor(`TAX CALCULATOR`, client.user.avatarURL({ dynamic: true }))
+
+   .setThumbnail(client.user.avatarURL({ dynamic: true }))   
+      
+.addFields([
+    {
+    name: `Amount: `,
+    value: `${tax}`
+},
+  {
+    name: `Tax: `, 
+    value: `${tax2}`
+  }
+])
+        .setColor(message.guild.me.displayColor)
+  .setTimestamp()
+    
+   message.reply({embeds: [embed]}).catch((err) => {
+   console.log(err.message)
+   });    
+  }
+}); 
+
 ///
 client.login(process.env.token)
 
