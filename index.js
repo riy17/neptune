@@ -16,7 +16,6 @@ client.on("message", async message => {
       let attach = new Discord.MessageAttachment(ef , "Circle.png");
      await message.channel.send(attach)
   }
-})
 //كود بنق البوت | ping bot code
 client.on('messageCreate', message => {
   if(message.content.startsWith("ping")) {
