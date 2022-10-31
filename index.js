@@ -25,7 +25,7 @@ client.on('messageCreate', message => {
     
   } 
 })
-client.on("message", async (message) => {
+client.on("messageCreate", async (message) => {
 if(message.channel.id != "1012444973448319077") return //ايدي روم
 if(message.author.send) {
 if (isNaN(message.content)) return message.delete()
